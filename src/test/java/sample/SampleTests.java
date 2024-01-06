@@ -9,6 +9,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.zerock.springex.sample.SampleService;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
+
 @Log4j2
 @ExtendWith(SpringExtension.class)
 //스프링의 설정 정보를 로딩하기 위해 사용
@@ -19,9 +22,21 @@ public class SampleTests {
     @Autowired
     private SampleService sampleService;
 
+    @Autowired
+    private DataSource dataSource;
+
     @Test
     public void testService1(){
         log.info(sampleService);
         Assertions.assertNotNull(sampleService);
+    }
+
+    @Test
+    public void testConnection() throws Exception{
+        Connection connection = dataSource.getConnection();
+        log.info(connection);
+        Assertions.assertNotNull(connection);
+
+        connection.close();
     }
 }

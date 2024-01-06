@@ -16,6 +16,7 @@ public class SampleService {
     //생성자 주입 방식
     //주입 받아야 하는 객체의 변수는 final
     //생성자를 이용해 해당 변수를 생성자의 파라미터로 지정
+//    @Qualifier("normal")
     private final SampleDAO sampleDAO;
 
 }

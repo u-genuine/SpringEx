@@ -28,9 +28,11 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 
     //라이브러리 추가할 땐 버전 통일
-    implementation group: 'org.springframework', name: 'spring-core', version: '5.3.19'
-    implementation group: 'org.springframework', name: 'spring-context', version: '5.3.19'
-    implementation group: 'org.springframework', name: 'spring-test', version: '5.3.19'
+    implementation group: 'org.springframework', name: 'spring-core', version: '5.3.16'
+    implementation group: 'org.springframework', name: 'spring-context', version: '5.3.16'
+    implementation group: 'org.springframework', name: 'spring-test', version: '5.3.16'
+    implementation group: 'org.springframework', name: 'spring-webmvc', version: '5.3.16'
+
 
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
@@ -43,6 +45,8 @@ dependencies {
 
     implementation group: 'jstl', name: 'jstl', version: '1.2'
 
+    implementation 'org.mariadb.jdbc:mariadb-java-client:3.0.4'
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.1'
 
 
 }
