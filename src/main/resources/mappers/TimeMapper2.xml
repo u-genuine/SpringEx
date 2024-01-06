@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/schema/mybatis-3-mapper.dtd">
+<!-- mapper 태그의 namespace 속성을 매퍼 인터페이스의 이름과 동일하게 지정해야 함 -->
+<mapper namespace="org.zerock.springex.mapper.TimeMapper2">
+    <!-- select 태그는 반드시 resultMap이나 resultType 속성 지정해야 함 -->
+    <select id="getNow" resultType="string">
+        select now()
+    </select>
+</mapper>

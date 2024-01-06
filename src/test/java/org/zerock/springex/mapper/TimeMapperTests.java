@@ -15,10 +15,11 @@ public class TimeMapperTests {
 
 
     @Autowired(required = false) // 해당 객체를 주입 받지 못하더라도 예외발생x)
-    private TimeMapper timeMapper;
+    private TimeMapper2 timeMapper2;
 
     @Test
-    public void testGetTime(){
-        log.info(timeMapper.getTime());
+    public void testNow(){
+
+        log.info(timeMapper2.getNow());
     }
 }
