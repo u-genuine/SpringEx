@@ -6,10 +6,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- 스프링 MVC 설정을 어노테이션 기반으로 처리한다는 의미 + MVC의 여러 객체들을 자동으로 스프링의 빈으로 등록하게 하는 기능 -->
-    <mvc:annotation-driven></mvc:annotation-driven>
+    <mvc:annotation-driven conversion-service="conversionService"/>
 
     <!-- 이미지나 html 파일과 같이 정적인 파일의 경로를 지정 -->
     <mvc:resources mapping="/resources/**" location="/resources/"></mvc:resources>
+
 
     <!-- 스프링 MVC에서 제공하는 뷰를 어떻게 결정하는지에 대한 설정 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -18,4 +19,12 @@
     </bean>
 
     <context:component-scan base-package="org.zerock.springex.controller"/>
+    
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="formatters">
+            <set>
+                <bean class="org.zerock.springex.controller.formatter.LocalDateFormatter"/>
+            </set>
+        </property>
+    </bean>
 </beans>
