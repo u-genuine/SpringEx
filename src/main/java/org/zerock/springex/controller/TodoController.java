@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.zerock.springex.dto.TodoDTO;
 
 @Controller
 @RequestMapping("/todo") // @RequestMapping(value = "/todo")와 같은 의미. 해당 경로의 요청을 지정하기 위해 사용
@@ -22,7 +23,8 @@ public class TodoController {
     }
 
     @PostMapping("/register")
-    public void registerPost(){
+    public void registerPost(TodoDTO todoDTO){
         log.info("POST todo register.....");
+        log.info(todoDTO);
     }
 }
